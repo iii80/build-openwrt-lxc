@@ -4,7 +4,7 @@
 
   |名称 |说明 |
   |:----|:----|
-  |IP| 10.5.2.1|
+  |IP| 192.168.0.111|
   |用户| root|
   |密码||
 
@@ -88,7 +88,7 @@ systemctl start dhcpv6.timer
 ```
 
 ### Lxc AdgHome配置
-- 创建lxc alpine容器，指定静态ip，10.5.2.2
+- 创建lxc alpine容器，指定静态ip，192.168.0.111
 - 进入容器执行
 ```
 wget --no-verbose -O - https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v
@@ -96,7 +96,7 @@ wget --no-verbose -O - https://raw.githubusercontent.com/AdguardTeam/AdGuardHome
 
 - 配置上游dns
 ```
-[/*.lan/]10.5.2.1 #解析本地设备
+[/*.lan/]192.168.0.111 #解析本地设备
 tls://120.53.53.53
 https://120.53.53.53/dns-query
 tls://223.6.6.6
@@ -115,7 +115,7 @@ Bootstrap DNS
 
 ### 网络配置
 - 接口 >> lan >> IPV6设置 >> 本地IPV6 >> **DNS服务器取消勾选**
-- 接口 >> lan >> DHCP 选项 >> 6,10.5.2.2
+- 接口 >> lan >> DHCP 选项 >> 6,192.168.0.111
 
 ### NAT回环失效修复，ssh到openwrt
 ```
